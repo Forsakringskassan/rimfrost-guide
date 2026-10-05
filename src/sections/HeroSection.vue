@@ -1,14 +1,13 @@
 <template>
   <section id="start">
     <div class="hero">
-      <p class="eyebrow">Försäkringskassan · PoC · läget 2 oktober 2026</p>
       <h1>Rimfrost<span>.</span></h1>
       <p class="lede">
         En ny plattform för handläggning. Den byggs upp av små, utbytbara delar: processer som styr flödet, regler som
         fattar delbeslut och en gemensam kö av uppgifter för handläggarna.
       </p>
       <div class="facts">
-        <span><b>77</b>repon</span>
+        <span><b>95</b>repon</span>
         <span><b>2</b>processer (VAH, VAB)</span>
         <span><b>4</b>regler i drift</span>
         <span><b>1</b>uppgiftslager</span>

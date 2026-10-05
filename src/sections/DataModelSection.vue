@@ -22,7 +22,7 @@ type Verdict = "bad" | "warn" | "ok";
 const verdictLabel: Record<Verdict, string> = { bad: "Avviker", warn: "Delvis", ok: "Matchar" };
 
 const valueLists: { concept: string; fk: string; rimfrost: string; verdict: Verdict }[] = [
-  { concept: "Uppgiftsstatus", fk: "Planerad, Tilldelad, Avslutad", rimfrost: "OUL: NY, TILLDELAD, AVSLUTAD, AVBRUTEN. Andra specar har andra listor.", verdict: "bad" },
+  { concept: "Uppgiftsstatus", fk: "Planerad, Tilldelad, Avslutad", rimfrost: "OUL: NY, TILLDELAD, AVSLUTAD. AVBRUTEN finns men används inte. Andra specar har andra listor.", verdict: "bad" },
   { concept: "Beslutsutfall", fk: "Beviljat, Avslag, Delvis avslag, Ändring m.fl.", rimfrost: "API: JA, NEJ, FU. Äldre modell: BEVILJAT, AVSLAG, DELVIS_BEVILJANDE …", verdict: "bad" },
   { concept: "Yrkandestatus", fk: "Planerat, Yrkat, Under utredning, Fastställt under utredning, Fastställt, Återtaget, Makulerat", rimfrost: "Samma, men utan Återtaget och Makulerat", verdict: "warn" },
   { concept: "Beslutstyp", fk: "Interimistiskt, Provisoriskt (EU 987/2009), Slutligt, Omprövning, Ändring", rimfrost: "Äldre modell: INTERIMISTISKT, STALLNINGSTAGANDE, SLUTLIG", verdict: "warn" },

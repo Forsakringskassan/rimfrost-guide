@@ -20,7 +20,7 @@ interface Entry {
 const GROUP_ORDER: Group[] = ["Begrepp", "I guiden", "Repon"];
 const GROUP_LIMIT: Record<Group, number> = { Begrepp: 4, "I guiden": 6, Repon: 4 };
 /** Elements inside the guide's sections that are worth jumping to. */
-const DOM_TARGETS = ".card, .layer, tbody tr, .steps li, .prose p, .callout, .q, .mock";
+const DOM_TARGETS = ".card, .layer, tbody tr, .steps li, .prose p, .callout, .mock";
 
 const { repoQuery, repoCategory, glossaryQuery } = useGuideFilters();
 const input = ref<HTMLInputElement>();

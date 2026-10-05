@@ -30,16 +30,13 @@
             <text x="372" y="226" text-anchor="middle" class="d-lbl">LÄMNA TILLBAKA · AVTILLDELA · SID-SPÄRR</text>
             <path d="M512 108C500 60 570 60 558 106" class="d-line" marker-end="url(#ar-oul)" />
             <text x="535" y="52" text-anchor="middle" class="d-lbl">TA ÖVER (TEAM)</text>
-            <path d="M610 122C660 100 680 82 718 76" class="d-line" marker-end="url(#ar-oul)" />
-            <text x="650" y="84" text-anchor="end" class="d-lbl">REGEL KLAR</text>
-            <rect x="720" y="52" width="140" height="48" rx="24" class="n-ok" />
-            <text x="790" y="81" text-anchor="middle" class="d-state">AVSLUTAD</text>
-            <path d="M610 146C660 170 680 186 718 192" class="d-line" marker-end="url(#ar-oul)" />
-            <text x="660" y="198" text-anchor="end" class="d-lbl">AVBRYTS</text>
-            <rect x="720" y="168" width="140" height="48" rx="24" class="n-bad" />
-            <text x="790" y="197" text-anchor="middle" class="d-state">AVBRUTEN</text>
-            <text x="790" y="248" text-anchor="middle" class="d-sub">Avslutade uppgifter</text>
-            <text x="790" y="264" text-anchor="middle" class="d-sub">raderas ur kön</text>
+            <path d="M610 134H718" class="d-line" marker-end="url(#ar-oul)" />
+            <text x="664" y="124" text-anchor="middle" class="d-lbl">REGEL KLAR</text>
+            <text x="664" y="152" text-anchor="middle" class="d-lbl">AVBRYTS</text>
+            <rect x="720" y="110" width="140" height="48" rx="24" class="n-ok" />
+            <text x="790" y="139" text-anchor="middle" class="d-state">AVSLUTAD</text>
+            <text x="790" y="184" text-anchor="middle" class="d-sub">Uppgiften raderas</text>
+            <text x="790" y="200" text-anchor="middle" class="d-sub">ur kön</text>
           </svg>
         </div>
       </figure>
@@ -64,13 +61,13 @@
           <h3>Team</h3>
           <p>
             I <b>teamvyn</b> ser handläggaren vad kollegorna i teamet har. Hen kan också <i>ta över</i> en kollegas
-            uppgift, men bara inom samma team och med rätt behörighet.
+            uppgift, men bara inom samma team. För ärenden med skyddad identitet krävs SID-behörighet.
           </p>
         </div>
         <div class="card">
           <h3>Lämna tillbaka</h3>
           <p>
-            En handläggare kan ge tillbaka en uppgift, till exempel på grund av jäv. Uppgiften går då tillbaka till kön,
+            En handläggare kan ge tillbaka en uppgift, t.ex. på grund av jäv. Uppgiften går då tillbaka till kön,
             och samma handläggare får den inte automatiskt igen.
           </p>
         </div>

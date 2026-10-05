@@ -26,7 +26,6 @@ Kräver Node 24 (se `.nvmrc`).
 |---|---|
 | Ordlistan | `src/data/glossary.ts` |
 | Repo-kartan | `src/data/repos.ts` |
-| Öppna frågor | `src/data/questions.ts` (samma id:n som i governorns `knowledge/open-questions.md`) |
 | Avsnittens ordning och innehållsförteckning | `src/data/sections.ts` + `src/App.vue` |
 | Text och diagram i ett avsnitt | `src/sections/<Avsnitt>Section.vue` |
 | Färger, typsnitt, ljust/mörkt läge | `src/styles/base.css` |

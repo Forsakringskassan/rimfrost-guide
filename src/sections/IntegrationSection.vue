@@ -12,20 +12,22 @@
       <div class="card">
         <p class="eyebrow">Meddelanden · Kafka · AsyncAPI</p>
         <h3>Ungefär som brev</h3>
-        <p>Processen skickar en fråga till en regel och väntar, ibland i flera dagar om en människa ska göra jobbet. Svaret kommer när det kommer.</p>
+        <p>Processen skickar en fråga till en regel och väntar. Svaret kommer när regeln är klar, för en manuell regel först när handläggaren är klar.</p>
         <ul>
+          <li>Workflow → process: <i>starta handläggningen</i></li>
           <li>Process → regel: <i>gör din bedömning</i></li>
           <li>Regel → process: <i>utfallet blev JA</i></li>
           <li>OUL → regel: <i>uppgiften är nu tilldelad</i></li>
-          <li>BFF → iloggning: <i>Lisa såg uppgifter om person X</i> (planerat)</li>
+          <li>BFF → iloggning: <i>Kim såg information om person X</i> (planerat)</li>
         </ul>
       </div>
       <div class="card">
         <p class="eyebrow">Anrop · REST · OpenAPI</p>
         <h3>Ungefär som telefonsamtal</h3>
-        <p>När någon behöver ett svar direkt ringer den upp, till exempel för att hämta ett ärende eller skapa en uppgift.</p>
+        <p>När någon behöver ett svar direkt ringer den upp, t.ex. för att hämta ett ärende eller skapa en uppgift.</p>
         <ul>
-          <li>Regel → handläggning: <i>ge mig yrkandet</i></li>
+          <li>Workflow → erbjudande-topic: <i>vilken process gäller för erbjudandet?</i></li>
+          <li>Regel → handläggning: <i>ge mig handläggningen med yrkandet</i></li>
           <li>Regel → OUL: <i>skapa en uppgift</i></li>
           <li>OUL → SID: <i>har någon i ärendet skyddad identitet?</i></li>
           <li>Portal → BFF → OUL: <i>ge mig nästa uppgift</i></li>
@@ -34,7 +36,7 @@
     </div>
     <p class="callout after">
       Varje kontrakt ligger i ett eget repo som slutar på <code>-openapi</code> eller <code>-asyncapi</code>. Om en
-      ändring påverkar ett kontrakt görs den ändringen först, i en egen ticket, och sedan anpassas tjänsterna.
+      ändring påverkar ett kontrakt ändras kontraktet först, i en egen ticket, och sedan anpassas tjänsterna.
     </p>
   </section>
 </template>

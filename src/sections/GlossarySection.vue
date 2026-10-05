@@ -17,7 +17,6 @@ const visible = computed(() => {
     <div class="head">
       <p class="eyebrow">Begrepp</p>
       <h2>Ordlista</h2>
-      <p class="lede">Orden du hör på möten, förklarade i klartext.</p>
     </div>
     <div class="tools">
       <label for="gq" class="visually-hidden">Sök begrepp</label>

@@ -10,7 +10,6 @@
   finns delvis eller saknas.
 - **GUIDE-FR-01.3** Guiden ska innehålla en repo-karta som går att filtrera på sort och söka i.
 - **GUIDE-FR-01.4** Guiden ska innehålla en sökbar ordlista.
-- **GUIDE-FR-01.5** Guiden ska lista öppna frågor med samma id som i projektets kunskapsbas.
 
 ### GUIDE-FR-02 — Navigering och sökning
 
