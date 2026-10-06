@@ -11,6 +11,34 @@ export const categoryLabels: Record<RepoCategory, string> = {
   drift: "Drift & mall",
 };
 
+export type ContractKind = "openapi" | "asyncapi";
+
+export const contractLabels: Record<ContractKind, string> = {
+  openapi: "OpenAPI (anrop)",
+  asyncapi: "AsyncAPI (meddelanden)",
+};
+
+/** A filter in the repo map: a category, one of the two kinds of contract, or everything. */
+export type RepoFilter = RepoCategory | ContractKind | "alla";
+
+/** Contract repos end in -openapi or -asyncapi; the one exception, vah-regel-rtf-api, is an AsyncAPI spec. */
+export function contractKind(repo: Repo): ContractKind | undefined {
+  if (repo.category !== "kontrakt") return undefined;
+  return repo.name.endsWith("-openapi") ? "openapi" : "asyncapi";
+}
+
+export function matchesFilter(repo: Repo, filter: RepoFilter): boolean {
+  if (filter === "alla") return true;
+  if (filter === "openapi" || filter === "asyncapi") return contractKind(repo) === filter;
+  return repo.category === filter;
+}
+
+export function filterLabel(filter: RepoFilter): string {
+  if (filter === "alla") return "Alla";
+  if (filter === "openapi" || filter === "asyncapi") return contractLabels[filter];
+  return categoryLabels[filter];
+}
+
 export interface Repo {
   /** Name without the `rimfrost-` prefix. */
   name: string;

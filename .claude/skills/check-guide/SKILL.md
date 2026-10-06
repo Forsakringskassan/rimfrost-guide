@@ -65,6 +65,8 @@ Repo-kartan (`src/data/repos.ts`):
   `internt`, och beskrivs som interna ("Intern koppling som låter regler hämta testdata från …"),
   inte som färdiga produkter.
 - Repon som avsiktligt inte är med står i `EXCLUDED` i `check.py`.
+- Kontrakt delas automatiskt i filtren OpenAPI och AsyncAPI efter namnets slut (`contractKind` i
+  `repos.ts`). Ett kontraktsrepo som inte slutar på `-openapi` räknas som AsyncAPI — kontrollera att det stämmer.
 - Ta bort arkiverade repon och repon som inte är publika.
 - Byt namn på omdöpta repon, och sök efter det gamla namnet i hela `src/` (chips i Byggstenarna,
   regeltabellen m.m.).

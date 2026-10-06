@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useGuideFilters } from "@/composables/useGuideFilters";
-import { type RepoCategory, categoryLabels, repos } from "@/data/repos";
+import { type RepoCategory, type RepoFilter, categoryLabels, filterLabel, matchesFilter, repos } from "@/data/repos";
 import { fold } from "@/lib/search";
 
 const { repoQuery, repoCategory } = useGuideFilters();
-const filters: (RepoCategory | "alla")[] = ["alla", ...(Object.keys(categoryLabels) as RepoCategory[])];
+// Kontrakt collects every contract; OpenAPI and AsyncAPI narrow it down and sit right after it.
+const filters: RepoFilter[] = ["alla", ...(Object.keys(categoryLabels) as RepoCategory[])].flatMap((f) =>
+  f === "kontrakt" ? ["kontrakt", "openapi", "asyncapi"] : [f],
+) as RepoFilter[];
 
 const visible = computed(() => {
   const q = fold(repoQuery.value.trim());
   return repos.filter(
     (r) =>
-      (repoCategory.value === "alla" || r.category === repoCategory.value) &&
+      matchesFilter(r, repoCategory.value) &&
       (!q || fold(`${r.name} ${r.description}`).includes(q)),
   );
 });
@@ -36,7 +39,7 @@ const visible = computed(() => {
           :aria-pressed="repoCategory === f"
           @click="repoCategory = f"
         >
-          {{ f === "alla" ? "Alla" : categoryLabels[f] }}
+          {{ filterLabel(f) }}
         </button>
       </div>
       <span class="count">{{ visible.length }} av {{ repos.length }}</span>
