@@ -24,7 +24,7 @@ const visible = computed(() => {
       <span class="count">{{ visible.length }} begrepp</span>
     </div>
     <div v-if="visible.length" class="gloss">
-      <div v-for="g in visible" :key="g.term" class="term">
+      <div v-for="g in visible" :key="g.term" class="term" :data-term="g.term">
         <b>{{ g.term }}</b>
         <span>{{ g.definition }}</span>
       </div>

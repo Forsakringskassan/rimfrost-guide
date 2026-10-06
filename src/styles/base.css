@@ -153,3 +153,5 @@ td .mono { color: var(--muted); }
   0%, 35% { background-color: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent); }
   100% { box-shadow: 0 0 0 3px transparent; }
 }
+/* Reduced motion: the same highlight, shown and removed without a fade */
+@media (prefers-reduced-motion: reduce) { .flash { animation-timing-function: steps(1, end); } }

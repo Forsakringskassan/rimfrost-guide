@@ -42,7 +42,7 @@ const visible = computed(() => {
       <span class="count">{{ visible.length }} av {{ repos.length }}</span>
     </div>
     <div v-if="visible.length" class="repos">
-      <div v-for="r in visible" :key="r.name" class="repo" :data-c="r.category">
+      <div v-for="r in visible" :key="r.name" class="repo" :data-c="r.category" :data-name="r.name">
         <div class="top">
           <code>rimfrost-{{ r.name }}</code>
           <span class="dot" :title="categoryLabels[r.category]"></span>

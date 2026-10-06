@@ -48,7 +48,7 @@ function buildIndex(): Entry[] {
     go: async () => {
       glossaryQuery.value = g.term;
       await nextTick();
-      flashElement(document.querySelector("#ordlista .term"));
+      flashElement(document.querySelector(`#ordlista .term[data-term="${CSS.escape(g.term)}"]`));
     },
   }));
 
@@ -82,7 +82,7 @@ function buildIndex(): Entry[] {
         repoCategory.value = "alla";
         repoQuery.value = r.name;
         await nextTick();
-        flashElement(document.querySelector("#repon .repo"));
+        flashElement(document.querySelector(`#repon .repo[data-name="${CSS.escape(r.name)}"]`));
       },
     });
   }

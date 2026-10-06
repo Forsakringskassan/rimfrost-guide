@@ -29,7 +29,7 @@ def token() -> str | None:
     if os.environ.get("GITHUB_TOKEN"):
         return os.environ["GITHUB_TOKEN"]
     try:
-        out = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True, timeout=10)
+        out = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True, encoding="utf-8", timeout=10)
         return out.stdout.strip() or None
     except (OSError, subprocess.TimeoutExpired):
         return None
@@ -44,7 +44,7 @@ def api(path: str):
     cmd = ["curl", "-sSL", "-w", "\n%{http_code}", "-H", "Accept: application/vnd.github+json"]
     if TOKEN:
         cmd += ["-H", f"Authorization: Bearer {TOKEN}"]
-    out = subprocess.run(cmd + [f"https://api.github.com{path}"], capture_output=True, text=True, timeout=60)
+    out = subprocess.run(cmd + [f"https://api.github.com{path}"], capture_output=True, text=True, encoding="utf-8", timeout=60)
     if out.returncode != 0:
         sys.exit(f"curl misslyckades: {out.stderr.strip()}")
     body, _, code = out.stdout.rpartition("\n")
@@ -73,7 +73,7 @@ def org_repos() -> list[dict]:
 
 
 def git(repo: str, *args: str) -> str:
-    return subprocess.run(["git", "-C", repo, *args], capture_output=True, text=True, check=True).stdout.strip()
+    return subprocess.run(["git", "-C", repo, *args], capture_output=True, text=True, encoding="utf-8", check=True).stdout.strip()
 
 
 def umbrella_clone() -> str:
@@ -89,16 +89,18 @@ def umbrella_clone() -> str:
 
 
 def main() -> None:
+    # The report is Swedish; don't depend on the console's code page (e.g. cp1252 on Windows).
+    sys.stdout.reconfigure(encoding="utf-8")
     gh = {r["name"]: r for r in org_repos() if r["name"].startswith("rimfrost")}
     active = {n for n, r in gh.items() if not r["archived"]}
     archived = {n for n, r in gh.items() if r["archived"]}
-    guide = {f"rimfrost-{n}" for n in re.findall(r'name: "([^"]+)"', REPOS_TS.read_text())}
+    guide = {f"rimfrost-{n}" for n in re.findall(r'name: "([^"]+)"', REPOS_TS.read_text(encoding="utf-8"))}
     active_mapped = active - EXCLUDED
 
     print(f"# Guidekontroll\n\nPublika rimfrost-repon på GitHub: **{len(active)} aktiva**, {len(archived)} arkiverade.")
     print(f"Repo-kartan har {len(guide)} repon.\n")
 
-    hero = re.search(r"<b>(\d+)</b>repon", HERO.read_text())
+    hero = re.search(r"<b>(\d+)</b>repon", HERO.read_text(encoding="utf-8"))
     if hero:
         print(f"Inledningen säger **{hero.group(1)} repon**. Aktiva i repo-kartan efter en uppdatering: {len(active_mapped)}.\n")
 
@@ -121,7 +123,7 @@ def main() -> None:
             print(f"- {n}: heter nu **{r['name']}**{' (arkiverat)' if r['archived'] else ''}")
 
     print(f"\n## Ändringar i `{UMBRELLA}` sedan förra kontrollen\n")
-    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     last = state.get("rimfrost_sha")
     # Plain git instead of the API: no rate limit, and full diffs for the reader.
     clone = umbrella_clone()
