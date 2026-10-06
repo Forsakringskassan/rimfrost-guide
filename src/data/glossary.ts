@@ -1,0 +1,53 @@
+export interface GlossaryTerm {
+  term: string;
+  definition: string;
+}
+
+const terms: GlossaryTerm[] = [
+  { term: "Yrkande", definition: "Kundens ansökan eller anspråk, t.ex. om ersättning för vård av husdjur." },
+  { term: "Handläggning", definition: "Behandlingen av ett yrkande, alltså ärendet. Har ett eget id som följer med genom hela flödet." },
+  { term: "Handläggare", definition: "Den på Försäkringskassan som utreder och bedömer ärenden." },
+  { term: "Underlag", definition: "Information som samlats in i ärendet, t.ex. folkbokföring och anställning." },
+  { term: "Erbjudande", definition: "En förmån man kan ansöka om. Hör till en produkt." },
+  { term: "Avsikt", definition: "Vad yrkandet vill: nytt, ändring, borttag eller återtaget." },
+  { term: "Roll i yrkande", definition: "Vilken roll en person har i ärendet, t.ex. ägare." },
+  { term: "Process", definition: "Flödet för en förmån som bestämmer i vilken ordning reglerna körs." },
+  { term: "Regel", definition: "En fristående del som avgör ett villkor. Den kan vara maskinell eller manuell." },
+  { term: "Maskinell", definition: "Sköts automatiskt av systemet." },
+  { term: "Manuell", definition: "Görs av en handläggare." },
+  { term: "Utfall", definition: "Regelns svar: JA, NEJ, UTREDNING eller ERROR." },
+  { term: "Utredning", definition: "Ärendet behöver bedömas av en människa." },
+  { term: "RTF", definition: "Rätt till försäkring: omfattas personen av försäkringen?" },
+  { term: "Komplettering", definition: "Att fylla i information som saknas i yrkandet." },
+  { term: "Lagrum", definition: "Det lagstöd som en regel bygger på, t.ex. en paragraf och ett stycke." },
+  { term: "Uppgift", definition: "Ett arbetsmoment för en handläggare." },
+  { term: "OUL", definition: "Operativt uppgiftslager, den gemensamma kön av uppgifter." },
+  { term: "Tilldelad", definition: "Uppgiften ligger hos en viss handläggare." },
+  { term: "Hämta nästa", definition: "Handläggaren får den högst prioriterade lediga uppgiften." },
+  { term: "Sorteringsordning", definition: "Admins regler för i vilken ordning uppgifterna delas ut." },
+  { term: "Teamvy", definition: "Lista över de uppgifter som handläggarens team har." },
+  { term: "Ta över", definition: "Att ta en kollegas uppgift inom samma team." },
+  { term: "Jäv", definition: "Intressekonflikt som gör att en handläggare inte får hantera ärendet." },
+  { term: "SID", definition: "Skyddad identitet: personer med skyddade personuppgifter. Kräver särskild behörighet." },
+  { term: "Behörighet", definition: "Vad en handläggare har rätt att se och göra." },
+  { term: "Beslut", definition: "Det formella beslutet i ärendet. Består av beslutsrader." },
+  { term: "Beslutsutfall", definition: "Vad beslutet blev, t.ex. beviljat eller avslag." },
+  { term: "Avslag", definition: "Nej till yrkandet." },
+  { term: "Ersättning", definition: "Pengar som betalas ut." },
+  { term: "Ersättningspost", definition: "En rad ersättning som handläggaren tar ställning till." },
+  { term: "Beräkningsgrund", definition: "Underlaget som beloppet räknas fram ur." },
+  { term: "Folkbokföring", definition: "Registret över var personer bor i Sverige." },
+  { term: "FSSÄ-information", definition: "Status som kunden ser, t.ex. att handläggaren väntar på information från hen." },
+  { term: "Iloggning", definition: "Loggning av vem som har tagit del av information om en person." },
+  { term: "BFF", definition: "Backend-for-frontend, en liten server bakom en enda vy." },
+  { term: "Mikrofrontend", definition: "En liten separat vy som portalen laddar in." },
+  { term: "Kafka", definition: "Meddelandesystemet som processer och regler använder för att skicka meddelanden till varandra." },
+  { term: "Kontrakt", definition: "Överenskommelse om hur anrop och meddelanden ser ut (OpenAPI och AsyncAPI)." },
+  { term: "Stub", definition: "En låtsastjänst som svarar med testdata." },
+  { term: "VAH", definition: "Vård av husdjur, den påhittade pilotförmånen." },
+  { term: "VAB", definition: "Här vård av boskap, den andra exempelprocessen." },
+  { term: "Kundbehov", definition: "Äldre ord för yrkande som finns kvar i en del kod." },
+  { term: "FKPOC", definition: "Projektnyckeln i Jira." },
+];
+
+export const glossary: GlossaryTerm[] = [...terms].sort((a, b) => a.term.localeCompare(b.term, "sv"));

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="En guide till Rimfrost för den som inte kodar: ärendeflödet, byggstenarna, uppgiftens liv, repo-kartan och ordlistan." />
+    <title>Rimfrost-guiden</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script>
+      // Apply the saved theme before first paint so the page doesn't flash.
+      try {
+        var t = localStorage.getItem("rf-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
