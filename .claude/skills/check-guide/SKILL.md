@@ -58,13 +58,22 @@ Repo-kartan (`src/data/repos.ts`):
 
 - Lägg till aktiva repon: `{ name: "<utan rimfrost->", category: "<kategori>", description: "<mening>" },`
   i rätt grupp. Kategorier: `process`, `regel`, `tjanst`, `portal`, `ramverk`, `kontrakt`
-  (`*-openapi`/`*-asyncapi`), `drift` (mallar, kubernetes, dokumentation).
+  (`*-openapi`/`*-asyncapi`), `internt` (mockkopplingar och interna hjälprepon), `drift` (mallar,
+  kubernetes, dokumentation).
+- `ramverk` är bara det man bygger nya regler, processer och BFF:er med. Kopplingar som låter regler
+  hämta testdata från stubbar (`adapter-*`) och interna hjälprepon (t.ex. `ersattning-data`) är
+  `internt`, och beskrivs som interna ("Intern koppling som låter regler hämta testdata från …"),
+  inte som färdiga produkter.
+- Repon som avsiktligt inte är med står i `EXCLUDED` i `check.py`.
 - Ta bort arkiverade repon och repon som inte är publika.
 - Byt namn på omdöpta repon, och sök efter det gamla namnet i hela `src/` (chips i Byggstenarna,
   regeltabellen m.m.).
 - Uppdatera antalet repon i `HeroSection.vue` så att det stämmer med repo-kartan.
 
 ## 4. Språkregler för guiden
+
+- Guiden ska inte väcka frågor om sådant som avsiktligt saknas eller är mockat. Jämför inte med FK:s
+  informationsmodell (den följs inte 1:1), och nämn inte påbörjade regler som inte används.
 
 - Svenska, för den som inte kodar. Korta meningar, en mening per repobeskrivning, slutar med punkt.
 - Skriv **t.ex.** (aldrig "till exempel"), **grund** (inte "grunden"), **maskinell** (inte "automatisk").

@@ -46,7 +46,6 @@
           <tr><td><b>Komplettering</b><br /><span class="mono">regel-rtf-manuell-komplettering</span></td><td>Manuell</td><td>Körs alltid före den manuella prövningen. Saknas personnummer eller avsikt fyller en handläggare i det, annars svarar regeln JA direkt.</td><td><span class="pill p-ok">I drift</span></td></tr>
           <tr><td><b>Rätt till försäkring, manuell</b><br /><span class="mono">regel-rtf-manuell</span></td><td>Manuell</td><td>Handläggaren går igenom folkbokföring och anställning och tar ställning till varje ersättningspost (JA, NEJ eller FU). Regeln svarar alltid JA till processen, och ställningstagandena används i Bekräfta beslut.</td><td><span class="pill p-ok">I drift</span></td></tr>
           <tr><td><b>Bekräfta beslut</b><br /><span class="mono">regel-bekraftabeslut</span></td><td>Manuell</td><td>Handläggaren bekräftar beslutet. Utfallet blir JA om alla ersättningar är beviljade, annars NEJ.</td><td><span class="pill p-ok">I drift</span></td></tr>
-          <tr><td><b>Beräkna ersättning</b><br /><span class="mono">regel-beraknaersattning</span></td><td>Maskinell</td><td>Ska räkna fram beloppet. Svarar idag alltid JA.</td><td><span class="pill p-warn">Stub, inte i VAH</span></td></tr>
         </tbody>
       </table>
     </div>

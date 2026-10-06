@@ -1,7 +1,7 @@
 # rimfrost-guide
 
 En guide till Rimfrost för den som inte kodar, till exempel projektledare. Den förklarar ärendeflödet, byggstenarna,
-uppgiftens liv i OUL, hur Rimfrost förhåller sig till FK:s datamodell, alla repon och de ord som används i projektet.
+uppgiftens liv i OUL, alla repon och de ord som används i projektet.
 
 Publiceras med GitHub Pages: <https://forsakringskassan.github.io/rimfrost-guide/>
 

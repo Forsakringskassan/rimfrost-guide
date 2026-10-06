@@ -4,7 +4,7 @@ const layers = [
   { c: "process", name: "Processer", sub: "Flödet för en förmån, byggt av processteg", chips: ["process-vah", "process-vab", "regel-…-subprocess"], next: "BER REGLER OM DELBESLUT · KAFKA" },
   { c: "regel", name: "Regler", sub: "Ett villkor var, maskinellt eller manuellt", chips: ["regel-rtf-maskinell", "regel-rtf-manuell", "regel-rtf-manuell-komplettering", "regel-bekraftabeslut"], next: "HÄMTAR OCH SPARAR DATA · REST" },
   { c: "tjanst", name: "Tjänster", sub: "Äger data och kön", chips: ["service-workflow", "service-erbjudande-topic", "service-oul", "service-handlaggning", "service-sid", "service-team", "service-referensdata", "service-folkbokforing", "service-arbetsgivare"], next: "BYGGER PÅ" },
-  { c: "ramverk", name: "Ramverk", sub: "Delad kod, så att en ny regel blir liten", chips: ["framework-regel", "framework-regel-maskinell", "framework-regel-manuell", "framework-regel-komplettering", "framework-regel-oul", "framework-oul", "framework-process", "framework-bff", "framework-*-adapter", "adapter-*", "template-…"], next: "FÖLJER" },
+  { c: "ramverk", name: "Ramverk", sub: "Delad kod, så att en ny regel blir liten", chips: ["framework-regel", "framework-regel-maskinell", "framework-regel-manuell", "framework-regel-komplettering", "framework-regel-oul", "framework-oul", "framework-process", "framework-bff", "framework-*-adapter", "template-…"], next: "FÖLJER" },
   { c: "kontrakt", name: "Kontrakt", sub: "Överenskommelser om anrop och meddelanden", chips: ["…-openapi", "…-asyncapi"] },
 ];
 </script>

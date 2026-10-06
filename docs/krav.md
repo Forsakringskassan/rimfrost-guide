@@ -6,8 +6,6 @@
 
 - **GUIDE-FR-01.1** Guiden ska förklara Rimfrost för en läsare utan programmeringsvana: ärendeflödet, byggstenarna,
   maskinella och manuella regler, uppgiftens liv i OUL, handläggarens vy, integration, nuläge och arbetssätt.
-- **GUIDE-FR-01.2** Guiden ska jämföra Rimfrosts begrepp och värdelistor med FK:s datamodell och visa om de finns,
-  finns delvis eller saknas.
 - **GUIDE-FR-01.3** Guiden ska innehålla en repo-karta som går att filtrera på sort och söka i.
 - **GUIDE-FR-01.4** Guiden ska innehålla en sökbar ordlista.
 

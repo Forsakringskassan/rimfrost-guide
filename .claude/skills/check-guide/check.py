@@ -18,6 +18,11 @@ ROOT = Path(__file__).resolve().parents[3]
 REPOS_TS = ROOT / "src/data/repos.ts"
 HERO = ROOT / "src/sections/HeroSection.vue"
 STATE = Path(__file__).with_name("state.json")
+# Public repos deliberately left out of the repo map. The umbrella repo is described in the prose.
+EXCLUDED = {
+    UMBRELLA,
+    "rimfrost-regel-beraknaersattning",  # untouched stub, not part of any flow (2026-10-06)
+}
 
 
 def token() -> str | None:
@@ -88,8 +93,7 @@ def main() -> None:
     active = {n for n, r in gh.items() if not r["archived"]}
     archived = {n for n, r in gh.items() if r["archived"]}
     guide = {f"rimfrost-{n}" for n in re.findall(r'name: "([^"]+)"', REPOS_TS.read_text())}
-    # The umbrella repo is described in the guide's prose, not in the repo map.
-    active_mapped = active - {UMBRELLA}
+    active_mapped = active - EXCLUDED
 
     print(f"# Guidekontroll\n\nPublika rimfrost-repon på GitHub: **{len(active)} aktiva**, {len(archived)} arkiverade.")
     print(f"Repo-kartan har {len(guide)} repon.\n")

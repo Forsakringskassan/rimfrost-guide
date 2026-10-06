@@ -6,7 +6,6 @@ export const sections = [
   { id: "regler", title: "Maskinellt och manuellt" },
   { id: "oul", title: "Uppgiftens liv" },
   { id: "portal", title: "Det handläggaren ser" },
-  { id: "datamodell", title: "FK:s datamodell" },
   { id: "kontrakt", title: "Hur delarna pratar" },
   { id: "nulage", title: "Nuläge och luckor" },
   { id: "repon", title: "Repo-kartan" },

@@ -46,6 +46,7 @@
 [data-c="tjanst"] { --lc: var(--c-tjanst); --ls: var(--c-tjanst-s); }
 [data-c="ramverk"], [data-c="drift"] { --lc: var(--c-ramverk); --ls: var(--c-ramverk-s); }
 [data-c="kontrakt"] { --lc: var(--c-kontrakt); --ls: var(--c-kontrakt-s); }
+[data-c="internt"] { --lc: var(--faint); --ls: var(--sunk); }
 
 /* Base */
 * { box-sizing: border-box; }

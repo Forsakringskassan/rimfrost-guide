@@ -2,7 +2,6 @@
 import TableOfContents from "./components/TableOfContents.vue";
 import TopBar from "./components/TopBar.vue";
 import CaseFlowSection from "./sections/CaseFlowSection.vue";
-import DataModelSection from "./sections/DataModelSection.vue";
 import GlossarySection from "./sections/GlossarySection.vue";
 import HeroSection from "./sections/HeroSection.vue";
 import IntegrationSection from "./sections/IntegrationSection.vue";
@@ -26,7 +25,6 @@ import WayOfWorkingSection from "./sections/WayOfWorkingSection.vue";
       <RulesSection />
       <TaskLifecycleSection />
       <PortalSection />
-      <DataModelSection />
       <IntegrationSection />
       <StatusSection />
       <RepoMapSection />

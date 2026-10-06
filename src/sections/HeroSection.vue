@@ -7,7 +7,7 @@
         fattar delbeslut och en gemensam kö av uppgifter för handläggarna.
       </p>
       <div class="facts">
-        <span><b>95</b>repon</span>
+        <span><b>94</b>repon</span>
         <span><b>2</b>processer (VAH, VAB)</span>
         <span><b>4</b>regler i drift</span>
         <span><b>1</b>uppgiftslager</span>
