@@ -48,6 +48,13 @@
             styrs av en <b>sorteringsordning</b> som admin ställer in, och bara en ordning är aktiv åt gången. Två
             handläggare kan aldrig få samma uppgift.
           </p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Hämta nästa: <code>POST /uppgifter/handlaggare</code> i <code>rimfrost-service-oul</code>. Uppgifterna sparas i Postgres.</p>
+              <p>Sorteringsordning: <code>POST /sorteringsordning</code>, <code>POST /sorteringsordning/preview</code> och <code>PUT /sorteringsordning/{id}/aktiv</code> i <code>rimfrost-service-oul-management-openapi</code>.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Skyddad identitet (SID)</h3>
@@ -56,6 +63,13 @@
             Det kontrolleras vid tilldelning och vid varje listning. Om svaret är oklart nekar systemet hellre än att
             gissa.
           </p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Personens SID: <code>rimfrost-service-sid</code>, <code>POST /sid/status</code>. Handläggarens behörighet: <code>rimfrost-service-permissions</code>, <code>POST /hasSidPermission</code>. Båda är hårdkodade.</p>
+              <p>Se också SID i ordlistan.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Team</h3>
@@ -63,6 +77,13 @@
             I <b>teamvyn</b> ser handläggaren vad kollegorna i teamet har. Hen kan också <i>ta över</i> en kollegas
             uppgift, men bara inom samma team. För ärenden med skyddad identitet krävs SID-behörighet.
           </p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Teamvy: <code>GET /uppgifter/team</code>. Ta över: <code>POST /uppgifter/{uppgift_id}/handlaggare</code>. Båda i <code>rimfrost-service-oul</code>.</p>
+              <p>Vem som är med i vilket team kommer från <code>rimfrost-service-team</code>, en stub med fyra team och tre testhandläggare.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Lämna tillbaka</h3>
@@ -70,6 +91,13 @@
             En handläggare kan ge tillbaka en uppgift, t.ex. på grund av jäv. Uppgiften går då tillbaka till kön,
             och samma handläggare får den inte automatiskt igen.
           </p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p><code>DELETE /uppgifter/{uppgift_id}/handlaggare</code> i <code>rimfrost-service-oul</code>. Handläggaren spärras för just den uppgiften, så hämta nästa hoppar över den.</p>
+              <p>Admin kan också lägga tillbaka en uppgift i kön, <code>POST /uppgifter/{uppgiftId}/unassign</code>, och då spärras ingen.</p>
+            </div>
+          </details>
         </div>
       </div>
     </div>

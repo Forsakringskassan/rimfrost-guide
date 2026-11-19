@@ -1,5 +1,16 @@
+import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { glossary } from "../glossary";
+import { sections } from "../sections";
+
+/** Every id="…" in the section components, so links may also point to anchors inside a section. */
+const sectionsDir = new URL("../../sections/", import.meta.url);
+const anchors = new Set([
+  ...sections.map((s) => s.id),
+  ...readdirSync(sectionsDir).flatMap((f) =>
+    [...readFileSync(new URL(f, sectionsDir), "utf8").matchAll(/\sid="([\w-]+)"/g)].map((m) => m[1]),
+  ),
+]);
 
 const terms = glossary.map((g) => g.term);
 
@@ -18,5 +29,11 @@ describe("glossary", () => {
     expect(sid?.definition).toMatch(/SID-behörighet/);
     expect(sid?.details?.length).toBeGreaterThan(0);
     expect(sid?.link?.href).toBe("#oul");
+  });
+
+  it("links only to anchors that exist in the guide", () => {
+    const links = glossary.flatMap((g) => (g.link ? [g.link.href] : []));
+    expect(links.length).toBeGreaterThan(0);
+    for (const href of links) expect(anchors, href).toContain(href.slice(1));
   });
 });

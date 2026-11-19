@@ -41,18 +41,44 @@
         <div class="card">
           <h3>Handläggarportalen</h3>
           <p>Här finns <i>mina uppgifter</i>, <i>hämta nästa</i>, <i>lämna tillbaka</i>, <i>teamvyn</i> och <i>sök uppgift</i>, där handläggaren kan söka fram uppgifter på en persons personnummer. Handläggarna är än så länge påhittade testpersoner.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Repon: <code>rimfrost-portal-handlaggare</code> och <code>rimfrost-portal-bff</code>.</p>
+              <p>Portalen hämtar route-manifestet med <code>GET /api/route-manifest</code> och laddar in regelns vy med Module Federation. Sök uppgift går via <code>POST /tasks/search</code> i portal-bff.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Processvyn</h3>
           <p>Ovanför en öppen uppgift visar processvyn processens steg: klara, pågående och kommande. Ett steg kan ha understeg i upp till tre nivåer. Varje process har en egen liten vy för det.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Vyer: <code>rimfrost-process-vah-fe</code> och <code>rimfrost-process-vab-fe</code>, med varsin BFF.</p>
+              <p>Processen beskriver sina steg i <code>processbeskrivning.json</code> och svarar på <code>GET /processvy/steg</code> (<code>rimfrost-framework-process-openapi</code>).</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Adminportalen</h3>
           <p>Här ser admin alla uppgifter, kan avtilldela eller flytta dem till en viss handläggare och kan skapa och förhandsgranska sorteringsordningar.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Repon: <code>rimfrost-portal-admin-fe</code> och <code>rimfrost-portal-admin-bff</code>. Anropen till OUL står i <code>rimfrost-service-oul-management-openapi</code>.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>BFF</h3>
           <p>En <i>backend-for-frontend</i> är en liten server för en enda vy. Den hämtar och tvättar data och kontrollerar behörighet, så att webbläsaren aldrig pratar direkt med tjänsterna.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Gemensam grund: <code>rimfrost-framework-bff</code>, ett bibliotek med felhantering, hälsokontroll, vidarebefordran av inloggningen, loggning och iloggning.</p>
+            </div>
+          </details>
         </div>
       </div>
       <div id="identitet" class="card ident">
