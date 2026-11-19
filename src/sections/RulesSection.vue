@@ -18,7 +18,7 @@
         </div>
         <ol class="steps">
           <li><div><b>Tar emot frågan</b><span>Processen skickar ett meddelande med handläggningens id.</span></div></li>
-          <li><div><b>Hämtar handläggningen</b><span>Läser yrkande och underlag. Vid störning försöker den igen med allt längre pauser.</span></div></li>
+          <li><div><b>Hämtar handläggningen</b><span>Läser yrkande och underlag. Vid fel försöker den igen med allt längre pauser.</span></div></li>
           <li><div><b>Avgör villkoret</b><span>Kör regelns logik, ofta en beslutstabell.</span></div></li>
           <li><div><b>Sparar och svarar</b><span>Skriver tillbaka underlaget och svarar processen med utfallet. Ingen människa är inblandad.</span></div></li>
         </ol>
