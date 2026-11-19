@@ -217,7 +217,7 @@ const terms: GlossaryTerm[] = [
       "Idag finns bara SID-behörighet: rimfrost-service-permissions, POST /hasSidPermission, hårdkodad.",
       "Regelns vy kontrollerar också att det är den inloggade handläggaren som har uppgiften. Annars svarar den 403.",
     ],
-    link: { href: "#identitet", text: "Hur Rimfrost vet vem handläggaren är" },
+    link: { href: "#oul", text: "Uppgiftens liv" },
   },
   {
     term: "Beslut",
@@ -249,12 +249,6 @@ const terms: GlossaryTerm[] = [
     term: "FSSÄ-information",
     definition: "Status som kunden ser, t.ex. att handläggaren väntar på information från hen.",
     details: ["Typerna finns i rimfrost-service-referensdata, GET /fssainformationstyp."],
-  },
-  {
-    term: "Id-nummer",
-    definition: "Numret som identifierar en handläggare. Det är det idvärde som identity-tjänsten svarar med för en handläggare.",
-    details: ["rimfrost-service-identity, GET /identity med headern Authorization: Bearer …, svarar med idtyp och idvärde. I PoC:n en stub som läser värdena direkt ur token."],
-    link: { href: "#identitet", text: "Hur Rimfrost vet vem handläggaren är" },
   },
   {
     term: "Iloggning",

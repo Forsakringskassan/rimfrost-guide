@@ -81,25 +81,6 @@
           </details>
         </div>
       </div>
-      <div id="identitet" class="card ident">
-        <p class="eyebrow">Identitet</p>
-        <h3>Hur Rimfrost vet vem handläggaren är</h3>
-        <ol class="steps">
-          <li><div><b>Inloggning</b><span>Handläggaren loggar in med Försäkringskassans vanliga inloggning. En intern tjänst för inloggning lägger på uppgifter om vem som är inloggad, och med varje anrop skickas ett bevis på det, en token.</span></div></li>
-          <li><div><b>Identity-tjänsten svarar</b><span>Rimfrost frågar FK:s identity-tjänst vem token tillhör och får tillbaka en idtyp och ett idvärde. För en handläggare är idvärdet hens id-nummer.</span></div></li>
-          <li><div><b>Rimfrost tolkar inte själv</b><span>Identity är en svart låda för Rimfrost. Rimfrost läser aldrig innehållet i token, utan använder bara svaret.</span></div></li>
-          <li><div><b>Svaret används för behörighet</b><span>Med svaret kontrollerar regelns vy att det är handläggaren som har uppgiften, och tjänsten för behörighet svarar på om hen får se personer med skyddad identitet.</span></div></li>
-        </ol>
-        <p class="note">Roller och grupper används inte idag. Om de behövs senare beställs de från den interna tjänsten för inloggning och behörigheter.</p>
-        <details class="more">
-          <summary>För utvecklare</summary>
-          <div>
-            <p><code>rimfrost-service-identity</code> svarar på <code>GET /identity</code> med headern <code>Authorization: Bearer …</code> och returnerar idtyp och idvärde. I PoC:n är den en stub som läser värdena direkt ur token.</p>
-            <p><code>rimfrost-service-permissions</code> svarar på <code>POST /hasSidPermission</code> med idtyp och idvärde i kroppen. Svaren är hårdkodade.</p>
-            <p>Ramverken för manuella regler, komplettering och kommunicering anropar tjänsterna via <code>rimfrost-adapter-identity</code> och <code>rimfrost-adapter-permissions</code>. OUL anropar permissions.</p>
-          </div>
-        </details>
-      </div>
     </div>
   </section>
 </template>
@@ -127,9 +108,6 @@
 .mock-slot b { font: 600 0.95rem var(--f-display); }
 .mock-slot .note { font-size: 0.75rem; opacity: 0.8; }
 .mock-toast { border-radius: 8px; background: var(--warn-s); color: var(--warn); padding: 0.5rem 0.7rem; font-size: 0.75rem; }
-.ident { max-width: 44rem; }
-.ident .steps { margin-top: 0.75rem; }
-.ident .note { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
 @media (max-width: 620px) {
   .mock-body { grid-template-columns: minmax(0, 1fr); }
   .mock-side { border-right: 0; border-bottom: 1px solid var(--line); }

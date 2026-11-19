@@ -21,7 +21,7 @@ describe("glossary", () => {
   });
 
   it("explains the terms that are new in 1.3", () => {
-    expect(terms).toEqual(expect.arrayContaining(["Kommunicering", "Id-nummer"]));
+    expect(terms).toEqual(expect.arrayContaining(["Kommunicering"]));
   });
 
   it("separates the person's SID from the case worker's SID permission and links to Uppgiftens liv", () => {
