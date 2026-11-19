@@ -22,12 +22,12 @@
           </div>
           <div class="mock-main">
             <div class="mock-title">Rubrik</div>
-            <div class="mock-steps" aria-label="Processvy">
-              <span class="done">Maskinell kontroll</span>
-              <span class="now">Manuell kontroll</span>
-              <span>Bekräfta beslut</span>
-              <span>Kommunicering</span>
-            </div>
+            <ol class="mock-steps" aria-label="Stegvy">
+              <li class="done"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7.5" /></svg></span><span>Maskinell kontroll av rätt till försäkring</span></li>
+              <li class="now" aria-current="step"><span class="dot">2</span><span>Manuell kontroll av rätt till försäkring</span></li>
+              <li><span class="dot">3</span><span>Bekräfta beslut</span></li>
+              <li><span class="dot">4</span><span>Kommunicering</span></li>
+            </ol>
             <div class="mock-slot">
               <b>Mikrofrontend för regeln</b>
               <span>t.ex. <code>regel-rtf-manuell-fe</code>, med en egen BFF</span>
@@ -99,10 +99,16 @@
 .mock-task.on { border-color: var(--accent); background: var(--accent-soft); }
 .mock-btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
 .mock-main { padding: 1rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.6rem; }
-.mock-steps { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.mock-steps span { border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.6rem; color: var(--muted); font-size: 0.72rem; }
-.mock-steps .done { background: var(--ok-s); color: var(--ok); border-color: transparent; }
-.mock-steps .now { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.mock-steps { list-style: none; margin: 0; padding: 0.4rem 0 0.1rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mock-steps li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0 0.2rem; text-align: center; font-size: 0.68rem; line-height: 1.25; color: var(--muted); }
+.mock-steps li + li::before { content: ""; position: absolute; top: calc(0.8rem - 1.5px); left: calc(-50% + 1.15rem); right: calc(50% + 1.15rem); height: 3px; border-radius: 2px; background: var(--line); }
+.mock-steps li.done + li::before { background: var(--ok); }
+.mock-steps .dot { position: relative; z-index: 1; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 0.72rem; background: var(--accent-soft); color: var(--accent); }
+.mock-steps .dot svg { width: 0.95rem; height: 0.95rem; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.mock-steps .done .dot { background: var(--ok); color: var(--bg); box-shadow: 0 0 0 3px var(--ok-s); }
+.mock-steps .now .dot { background: var(--accent); color: var(--bg); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mock-steps .done, .mock-steps .now { color: var(--ink); }
+.mock-steps .now { font-weight: 600; }
 .mock-title { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.8rem; font: 600 0.95rem var(--f-display); }
 .mock-slot { border: 1.5px dashed var(--c-portal); background: var(--c-portal-s); border-radius: 10px; display: grid; place-items: center; text-align: center; padding: 1rem; color: var(--c-portal); gap: 0.25rem; }
 .mock-slot b { font: 600 0.95rem var(--f-display); }
