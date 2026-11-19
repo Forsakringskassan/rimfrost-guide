@@ -14,7 +14,7 @@
       <li><div><b>Release</b><span>Varje repo släpps för sig. Den nya versionen förs sedan in i driftsättningen.</span></div></li>
     </ol>
     <footer>
-      <span>Rimfrost-guiden · innehållet bygger på kunskapsbasen i projektets governor, läget den 2 oktober 2026.</span>
+      <span>Rimfrost-guiden · innehållet bygger på kunskapsbasen i projektets governor, läget den 19 november 2026.</span>
       <span>Hittar du något som inte stämmer? Skriv det i en mötesanteckning eller öppna en pull request mot <code>rimfrost-guide</code>.</span>
     </footer>
   </section>

@@ -1,10 +1,14 @@
 export interface GlossaryTerm {
   term: string;
   definition: string;
+  /** Technical detail for developers, shown in a collapsible part. */
+  details?: string[];
+  /** A section of the guide that explains the term further. */
+  link?: { href: string; text: string };
 }
 
 const terms: GlossaryTerm[] = [
-  { term: "Yrkande", definition: "Kundens ansökan eller anspråk, t.ex. om ersättning för vård av husdjur." },
+  { term: "Yrkande", definition: "Kundens ansökan eller anspråk, t.ex. om ersättning i exempelförmånen vård av husdjur." },
   { term: "Handläggning", definition: "Behandlingen av ett yrkande, alltså ärendet. Har ett eget id som följer med genom hela flödet." },
   { term: "Handläggare", definition: "Den på Försäkringskassan som utreder och bedömer ärenden." },
   { term: "Underlag", definition: "Information som samlats in i ärendet, t.ex. folkbokföring och anställning." },
@@ -19,6 +23,7 @@ const terms: GlossaryTerm[] = [
   { term: "Utredning", definition: "Ärendet behöver bedömas av en människa." },
   { term: "RTF", definition: "Rätt till försäkring: omfattas personen av försäkringen?" },
   { term: "Komplettering", definition: "Att fylla i information som saknas i yrkandet." },
+  { term: "Kommunicering", definition: "Steget där handläggaren registrerar hur kunden har svarat på beslutet. Godtas kundens invändning prövas ärendet om. En gemensam byggsten för alla processer som behöver kommunicera med kunden. Hittills inkopplad i exempelprocessen VAH, från version 1.3." },
   { term: "Lagrum", definition: "Det lagstöd som en regel bygger på, t.ex. en paragraf och ett stycke." },
   { term: "Uppgift", definition: "Ett arbetsmoment för en handläggare." },
   { term: "OUL", definition: "Operativt uppgiftslager, den gemensamma kön av uppgifter." },
@@ -28,7 +33,19 @@ const terms: GlossaryTerm[] = [
   { term: "Teamvy", definition: "Lista över de uppgifter som handläggarens team har." },
   { term: "Ta över", definition: "Att ta en kollegas uppgift inom samma team." },
   { term: "Jäv", definition: "Intressekonflikt som gör att en handläggare inte får hantera ärendet." },
-  { term: "SID", definition: "Skyddad identitet: personer med skyddade personuppgifter. Kräver särskild behörighet." },
+  {
+    term: "SID",
+    definition:
+      "Skyddad identitet. Två saker hålls isär: personens skyddade identitet, alltså att någon i ärendet har skyddade personuppgifter, och handläggarens SID-behörighet, alltså att handläggaren får hantera sådana ärenden. " +
+      "Det kontrolleras när en uppgift tilldelas, i listorna över mina uppgifter och teamets uppgifter, när någon tar över en uppgift och varje gång en manuell regel, en komplettering eller kommuniceringen visar underlag. " +
+      "Personens skyddade identitet bestäms av sid-tjänsten och handläggarens behörighet av behörighetstjänsten. Båda är hårdkodade i PoC:n, och det finns inget gränssnitt för att ändra dem.",
+    details: [
+      "Personens SID: rimfrost-service-sid, POST /sid/status. En person räknas som skyddad om personnumret slutar på 4444, t.ex. demopersonen 19900101-4444.",
+      "Handläggarens SID-behörighet: rimfrost-service-permissions, POST /hasSidPermission. Svaren är hårdkodade, och bara en av de tre testhandläggarna har behörighet. Den går inte att ändra i adminportalen.",
+      "OUL frågar båda tjänsterna vid tilldelning, listning och ta över. Ramverken för manuella regler, komplettering och kommunicering gör samma kontroll när underlaget hämtas.",
+    ],
+    link: { href: "#oul", text: "Uppgiftens liv" },
+  },
   { term: "Behörighet", definition: "Vad en handläggare har rätt att se och göra." },
   { term: "Beslut", definition: "Det formella beslutet i ärendet. Består av beslutsrader." },
   { term: "Beslutsutfall", definition: "Vad beslutet blev, t.ex. beviljat eller avslag." },
@@ -38,14 +55,15 @@ const terms: GlossaryTerm[] = [
   { term: "Beräkningsgrund", definition: "Underlaget som beloppet räknas fram ur." },
   { term: "Folkbokföring", definition: "Registret över var personer bor i Sverige." },
   { term: "FSSÄ-information", definition: "Status som kunden ser, t.ex. att handläggaren väntar på information från hen." },
+  { term: "Id-nummer", definition: "Numret som identifierar en handläggare. Det är det idvärde som identity-tjänsten svarar med för en handläggare." },
   { term: "Iloggning", definition: "Loggning av vem som har tagit del av information om en person." },
   { term: "BFF", definition: "Backend-for-frontend, en liten server bakom en enda vy." },
   { term: "Mikrofrontend", definition: "En liten separat vy som portalen laddar in." },
   { term: "Kafka", definition: "Meddelandesystemet som processer och regler använder för att skicka meddelanden till varandra." },
   { term: "Kontrakt", definition: "Överenskommelse om hur anrop och meddelanden ser ut (OpenAPI och AsyncAPI)." },
   { term: "Stub", definition: "En låtsastjänst som svarar med testdata." },
-  { term: "VAH", definition: "Vård av husdjur, den påhittade pilotförmånen." },
-  { term: "VAB", definition: "Här vård av boskap, den andra exempelprocessen." },
+  { term: "VAH", definition: "Vård av husdjur. En påhittad exempelförmån utan lagstöd, som inte finns hos Försäkringskassan. Den visar hur Rimfrost fungerar." },
+  { term: "VAB", definition: "Här vård av boskap. Också en påhittad exempelförmån utan lagstöd. Den visar att samma byggstenar går att återanvända." },
   { term: "Kundbehov", definition: "Äldre ord för yrkande som finns kvar i en del kod." },
   { term: "FKPOC", definition: "Projektnyckeln i Jira." },
 ];

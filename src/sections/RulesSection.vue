@@ -38,14 +38,23 @@
         </ol>
       </div>
     </div>
+    <h3 class="sub-head">Så hänger de ihop i ett ärende</h3>
+    <ol class="steps order">
+      <li><div><b>Maskinell regel</b><span>Rätt till försäkring kontrolleras automatiskt. Blir svaret UTREDNING går ärendet vidare till den manuella prövningen.</span></div></li>
+      <li><div><b>Komplettering</b><span>Det första steget i den manuella prövningen. Saknas något i yrkandet får en handläggare fylla i det.</span></div></li>
+      <li><div><b>Manuell regel</b><span>En handläggare går igenom underlaget och tar ställning till varje ersättningspost.</span></div></li>
+      <li><div><b>Bekräfta beslut</b><span>En handläggare bekräftar beslutet. Det här steget körs i alla ärenden.</span></div></li>
+      <li><div><b>Kommunicering</b><span>Nytt i 1.3. En gemensam byggsten för processer som behöver kommunicera med kunden, hittills inkopplad i exempelprocessen VAH. En handläggare registrerar hur kunden har svarat på beslutet. Godtas kundens invändning börjar ärendet om från den maskinella regeln.</span></div></li>
+    </ol>
     <div class="tbl-wrap rules">
       <table>
         <thead><tr><th>Regel</th><th>Typ</th><th>Vad den avgör</th><th>Läge</th></tr></thead>
         <tbody>
           <tr><td><b>Rätt till försäkring</b><br /><span class="mono">regel-rtf-maskinell</span></td><td>Maskinell</td><td>Är personen folkbokförd och har den en anställning? JA om personen är folkbokförd, UTREDNING om den inte är folkbokförd men har en anställning, annars NEJ.</td><td><span class="pill p-ok">I drift</span></td></tr>
-          <tr><td><b>Komplettering</b><br /><span class="mono">regel-rtf-manuell-komplettering</span></td><td>Manuell</td><td>Körs alltid före den manuella prövningen. Saknas personnummer eller avsikt fyller en handläggare i det, annars svarar regeln JA direkt.</td><td><span class="pill p-ok">I drift</span></td></tr>
+          <tr><td><b>Komplettering</b><br /><span class="mono">regel-rtf-manuell-komplettering</span></td><td>Manuell</td><td>Körs alltid först i den manuella prövningen. Saknas personnummer eller avsikt fyller en handläggare i det, annars svarar regeln JA direkt. Uppdateras en persons identitet medan kompletteringen väntar kontrolleras yrkandet igen, och är det komplett blir kompletteringen klar av sig själv.</td><td><span class="pill p-ok">I drift</span></td></tr>
           <tr><td><b>Rätt till försäkring, manuell</b><br /><span class="mono">regel-rtf-manuell</span></td><td>Manuell</td><td>Handläggaren går igenom folkbokföring och anställning och tar ställning till varje ersättningspost (JA, NEJ eller FU). Regeln svarar alltid JA till processen, och ställningstagandena används i Bekräfta beslut.</td><td><span class="pill p-ok">I drift</span></td></tr>
           <tr><td><b>Bekräfta beslut</b><br /><span class="mono">regel-bekraftabeslut</span></td><td>Manuell</td><td>Handläggaren bekräftar beslutet. Utfallet blir JA om alla ersättningar är beviljade, annars NEJ.</td><td><span class="pill p-ok">I drift</span></td></tr>
+          <tr><td><b>Kommunicering</b><br /><span class="mono">regel-kommunicering</span></td><td>Manuell</td><td>Gemensam byggsten för kommunikation med kunden, hittills inkopplad i VAH. Handläggaren registrerar hur kunden har svarat på beslutet. Godtas kundens invändning blir utfallet NEJ och ärendet prövas om, annars JA.</td><td><span class="pill p-warn">På gång i 1.3</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -58,4 +67,5 @@
 .ic { width: 2.4rem; height: 2.4rem; border-radius: 10px; display: grid; place-items: center; background: var(--ls); color: var(--lc); }
 .ic svg { width: 1.3rem; height: 1.3rem; }
 .rules { margin-top: 2rem; }
+.order { max-width: 44rem; }
 </style>

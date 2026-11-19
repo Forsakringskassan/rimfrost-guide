@@ -18,7 +18,8 @@
           <li>Process → regel: <i>gör din bedömning</i></li>
           <li>Regel → process: <i>utfallet blev JA</i></li>
           <li>OUL → regel: <i>uppgiften är nu tilldelad</i></li>
-          <li>BFF → iloggning: <i>Kim såg information om person X</i> (planerat)</li>
+          <li>Identitet-prenumeration → komplettering: <i>en identitet har uppdaterats</i></li>
+          <li>BFF → iloggning: <i>Kim såg information om person X</i></li>
         </ul>
       </div>
       <div class="card">
@@ -30,6 +31,9 @@
           <li>Regel → handläggning: <i>ge mig handläggningen med yrkandet</i></li>
           <li>Regel → OUL: <i>skapa en uppgift</i></li>
           <li>OUL → SID: <i>har någon i ärendet skyddad identitet?</i></li>
+          <li>OUL → permissions: <i>har handläggaren SID-behörighet?</i></li>
+          <li>Regel → identity: <i>vem är den inloggade handläggaren?</i></li>
+          <li>Regel → permissions: <i>får hen se det här underlaget?</i></li>
           <li>Portal → BFF → OUL: <i>ge mig nästa uppgift</i></li>
         </ul>
       </div>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const layers = [
-  { c: "portal", name: "Portaler & vyer", sub: "Det handläggare och admin ser", chips: ["portal-handlaggare", "portal-admin-fe", "regel-…-fe", "…-bff"], next: "LADDAR VYER · ANROPAR VIA BFF" },
+  { c: "portal", name: "Portaler & vyer", sub: "Det handläggare och admin ser", chips: ["portal-handlaggare", "portal-admin-fe", "regel-…-fe", "process-…-fe", "…-bff"], next: "LADDAR VYER · ANROPAR VIA BFF" },
   { c: "process", name: "Processer", sub: "Flödet för en förmån, byggt av processteg", chips: ["process-vah", "process-vab", "regel-…-subprocess"], next: "BER REGLER OM DELBESLUT · KAFKA" },
-  { c: "regel", name: "Regler", sub: "Ett villkor var, maskinellt eller manuellt", chips: ["regel-rtf-maskinell", "regel-rtf-manuell", "regel-rtf-manuell-komplettering", "regel-bekraftabeslut"], next: "HÄMTAR OCH SPARAR DATA · REST" },
-  { c: "tjanst", name: "Tjänster", sub: "Äger data och kön", chips: ["service-workflow", "service-erbjudande-topic", "service-oul", "service-handlaggning", "service-sid", "service-team", "service-referensdata", "service-folkbokforing", "service-arbetsgivare"], next: "BYGGER PÅ" },
-  { c: "ramverk", name: "Ramverk", sub: "Delad kod, så att en ny regel blir liten", chips: ["framework-regel", "framework-regel-maskinell", "framework-regel-manuell", "framework-regel-komplettering", "framework-regel-oul", "framework-oul", "framework-process", "framework-bff", "framework-*-adapter", "template-…"], next: "FÖLJER" },
+  { c: "regel", name: "Regler", sub: "Ett villkor var, maskinellt eller manuellt", chips: ["regel-rtf-maskinell", "regel-rtf-manuell", "regel-rtf-manuell-komplettering", "regel-bekraftabeslut", "regel-kommunicering"], next: "HÄMTAR OCH SPARAR DATA · REST" },
+  { c: "tjanst", name: "Tjänster", sub: "Äger data och kön", chips: ["service-workflow", "service-erbjudande-topic", "service-oul", "service-handlaggning", "service-sid", "service-team", "service-identity", "service-permissions", "service-identitet-prenumeration", "service-referensdata", "service-folkbokforing", "service-arbetsgivare"], next: "BYGGER PÅ" },
+  { c: "ramverk", name: "Ramverk", sub: "Delad kod, så att en ny regel blir liten", chips: ["framework-regel", "framework-regel-maskinell", "framework-regel-manuell", "framework-regel-komplettering", "framework-regel-kommunicering", "framework-regel-oul", "framework-oul", "framework-process", "framework-bff", "framework-*-adapter", "template-…"], next: "FÖLJER" },
   { c: "kontrakt", name: "Kontrakt", sub: "Överenskommelser om anrop och meddelanden", chips: ["…-openapi", "…-asyncapi"] },
 ];
 </script>

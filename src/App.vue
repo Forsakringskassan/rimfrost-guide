@@ -6,6 +6,7 @@ import GlossarySection from "./sections/GlossarySection.vue";
 import HeroSection from "./sections/HeroSection.vue";
 import IntegrationSection from "./sections/IntegrationSection.vue";
 import LayersSection from "./sections/LayersSection.vue";
+import NewsSection from "./sections/NewsSection.vue";
 import PortalSection from "./sections/PortalSection.vue";
 import RepoMapSection from "./sections/RepoMapSection.vue";
 import RulesSection from "./sections/RulesSection.vue";
@@ -20,6 +21,7 @@ import WayOfWorkingSection from "./sections/WayOfWorkingSection.vue";
     <TableOfContents />
     <main>
       <HeroSection />
+      <NewsSection />
       <CaseFlowSection />
       <LayersSection />
       <RulesSection />
