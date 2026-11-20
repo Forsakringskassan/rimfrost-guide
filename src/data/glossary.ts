@@ -202,7 +202,7 @@ const terms: GlossaryTerm[] = [
     definition:
       "Skyddad identitet. Två saker hålls isär: personens skyddade identitet, alltså att någon i ärendet har skyddade personuppgifter, och handläggarens SID-behörighet, alltså att handläggaren får hantera sådana ärenden. " +
       "Det kontrolleras när en uppgift tilldelas, i listorna över mina uppgifter och teamets uppgifter, när någon tar över en uppgift och varje gång en manuell regel, en komplettering eller kommuniceringen visar underlag. " +
-      "Personens skyddade identitet bestäms av sid-tjänsten och handläggarens behörighet av behörighetstjänsten. Båda är hårdkodade i PoC:n, och det finns inget gränssnitt för att ändra dem.",
+      "Personens skyddade identitet bestäms av sid-tjänsten och handläggarens behörighet av behörighetstjänsten. Båda är hårdkodade än så länge, och det finns inget gränssnitt för att ändra dem.",
     details: [
       "Personens SID: rimfrost-service-sid, POST /sid/status. En person räknas som skyddad om personnumret slutar på 4444, t.ex. demopersonen 19900101-4444.",
       "Handläggarens SID-behörighet: rimfrost-service-permissions, POST /hasSidPermission. Svaren är hårdkodade, och bara en av de tre testhandläggarna har behörighet. Den går inte att ändra i adminportalen.",

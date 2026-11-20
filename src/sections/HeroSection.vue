@@ -32,7 +32,7 @@ import { repos } from "@/data/repos";
     </div>
     <div class="prose">
       <p>
-        Rimfrost är ett proof of concept som Försäkringskassan bygger för att pröva en ny arkitektur för handläggning. I
+        Rimfrost är Försäkringskassans plattform för handläggning, byggd på en ny arkitektur. I
         stället för ett stort system per förmån finns här gemensamma byggstenar, och en ny förmån ska kunna sättas ihop
         av dem.
       </p>

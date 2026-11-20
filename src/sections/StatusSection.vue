@@ -17,7 +17,7 @@ const parts = [
   <section id="nulage">
     <div class="head">
       <h2>Nuläge och luckor</h2>
-      <p class="lede">Rimfrost är ett proof of concept. Kärnan fungerar på riktigt, men flera kringtjänster låtsas än så länge.</p>
+      <p class="lede">Kärnan fungerar på riktigt, men flera kringtjänster låtsas än så länge.</p>
     </div>
     <div class="tbl-wrap">
       <table>
