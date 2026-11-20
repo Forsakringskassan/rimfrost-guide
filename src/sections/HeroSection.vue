@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { repos } from "@/data/repos";
+</script>
+
 <template>
   <section id="start">
     <div class="hero">
@@ -7,8 +11,8 @@
         fattar delbeslut och en gemensam kö av uppgifter för handläggarna.
       </p>
       <div class="facts">
-        <span><b>94</b>repon</span>
-        <span><b>2</b>processer (VAH, VAB)</span>
+        <span><b>{{ repos.length }}</b>repon</span>
+        <span><b>2</b>exempelprocesser (VAH, VAB)</span>
         <span><b>4</b>regler i drift</span>
         <span><b>1</b>uppgiftslager</span>
         <span><b>FKPOC</b>i Jira</span>
@@ -28,14 +32,16 @@
     </div>
     <div class="prose">
       <p>
-        Rimfrost är ett proof of concept som Försäkringskassan bygger för att pröva en ny arkitektur för handläggning. I
+        Rimfrost är Försäkringskassans plattform för handläggning, byggd på en ny arkitektur. I
         stället för ett stort system per förmån finns här gemensamma byggstenar, och en ny förmån ska kunna sättas ihop
         av dem.
       </p>
       <p>
-        Pilotförmånen är den påhittade <b>vård av husdjur (VAH)</b>. Den har en tvilling, <b>vård av boskap (VAB)</b>,
-        som finns för att visa att samma delar går att återanvända. Förmånerna är fiktiva, men flödet är realistiskt: ett
-        yrkande kommer in, rätten till försäkring prövas, en handläggare utreder vid behov och ett beslut bekräftas.
+        <b>Vård av husdjur (VAH)</b> är en påhittad exempelförmån utan lagstöd. Den är inte kopplad till någon riktig
+        ärendetyp hos Försäkringskassan, utan finns för att visa hur Rimfrost fungerar. Samma sak gäller tvillingen
+        <b>vård av boskap (VAB)</b>, som visar att samma delar går att återanvända. Förmånerna är påhittade, men flödet
+        är realistiskt: ett yrkande kommer in, rätten till försäkring prövas, en handläggare utreder vid behov och ett
+        beslut bekräftas.
       </p>
     </div>
   </section>

@@ -1,6 +1,7 @@
 /** Order and anchors of the guide's sections. Used by the table of contents. */
 export const sections = [
   { id: "start", title: "På en minut" },
+  { id: "nytt", title: "Nytt i 1.3 (kommande)" },
   { id: "resan", title: "Ett ärendes resa" },
   { id: "lager", title: "Byggstenarna" },
   { id: "regler", title: "Maskinellt och manuellt" },

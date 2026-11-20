@@ -27,6 +27,11 @@ const visible = computed(() => {
       <div v-for="g in visible" :key="g.term" class="term" :data-term="g.term">
         <b>{{ g.term }}</b>
         <span>{{ g.definition }}</span>
+        <span v-if="g.link" class="go">Läs mer: <a :href="g.link.href">{{ g.link.text }}</a></span>
+        <details v-if="g.details" class="more">
+          <summary>För utvecklare</summary>
+          <div><p v-for="d in g.details" :key="d">{{ d }}</p></div>
+        </details>
       </div>
     </div>
     <p v-else class="empty">Inget begrepp matchar.</p>

@@ -13,14 +13,21 @@
         <div class="mock-top"><i></i><i></i><i></i><span>portal-handlaggare · inloggad som Kim Berg</span></div>
         <div class="mock-body">
           <div class="mock-side">
-            <div class="mock-task on"><b>Rätt till försäkring</b><small>Vård av husdjur · tilldelad idag</small></div>
-            <div class="mock-task"><b>Bekräfta beslut</b><small>Vård av husdjur · igår</small></div>
-            <div class="mock-task"><b>Komplettering</b><small>Vård av husdjur · igår</small></div>
+            <div class="mock-task on"><b>Rätt till försäkring</b><small>Exempel: vård av husdjur · tilldelad idag</small></div>
+            <div class="mock-task"><b>Bekräfta beslut</b><small>Exempel: vård av husdjur · igår</small></div>
+            <div class="mock-task"><b>Komplettering</b><small>Exempel: vård av husdjur · igår</small></div>
             <div class="mock-btn">Hämta nästa uppgift</div>
             <div class="mock-btn secondary">Teamvy</div>
+            <div class="mock-btn secondary">Sök uppgift</div>
           </div>
           <div class="mock-main">
             <div class="mock-title">Rubrik</div>
+            <ol class="mock-steps" aria-label="Stegvy">
+              <li class="done"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7.5" /></svg></span><span>Maskinell kontroll av rätt till försäkring</span></li>
+              <li class="now" aria-current="step"><span class="dot">2</span><span>Manuell kontroll av rätt till försäkring</span></li>
+              <li><span class="dot">3</span><span>Bekräfta beslut</span></li>
+              <li><span class="dot">4</span><span>Kommunicering</span></li>
+            </ol>
             <div class="mock-slot">
               <b>Mikrofrontend för regeln</b>
               <span>t.ex. <code>regel-rtf-manuell-fe</code>, med en egen BFF</span>
@@ -30,18 +37,48 @@
           </div>
         </div>
       </div>
-      <div class="grid3">
+      <div class="grid2">
         <div class="card">
           <h3>Handläggarportalen</h3>
-          <p>Här finns <i>mina uppgifter</i>, <i>hämta nästa</i>, <i>lämna tillbaka</i> och <i>teamvyn</i>. Handläggarna är än så länge påhittade testpersoner.</p>
+          <p>Här finns <i>mina uppgifter</i>, <i>hämta nästa</i>, <i>lämna tillbaka</i>, <i>teamvyn</i> och <i>sök uppgift</i>, där handläggaren kan söka fram uppgifter på en persons personnummer. Handläggarna är än så länge påhittade testpersoner.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Repon: <code>rimfrost-portal-handlaggare</code> och <code>rimfrost-portal-bff</code>.</p>
+              <p>Portalen hämtar route-manifestet med <code>GET /api/route-manifest</code> och laddar in regelns vy med Module Federation. Sök uppgift går via <code>POST /tasks/search</code> i portal-bff.</p>
+            </div>
+          </details>
+        </div>
+        <div class="card">
+          <h3>Processvyn</h3>
+          <p>Ovanför en öppen uppgift visar processvyn processens steg: klara, pågående och kommande. Ett steg kan ha understeg i upp till tre nivåer. Varje process har en egen liten vy för det.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Vyer: <code>rimfrost-process-vah-fe</code> och <code>rimfrost-process-vab-fe</code>, med varsin BFF.</p>
+              <p>Processen beskriver sina steg i <code>processbeskrivning.json</code> och svarar på <code>GET /processvy/steg</code> (<code>rimfrost-framework-process-openapi</code>).</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>Adminportalen</h3>
           <p>Här ser admin alla uppgifter, kan avtilldela eller flytta dem till en viss handläggare och kan skapa och förhandsgranska sorteringsordningar.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Repon: <code>rimfrost-portal-admin-fe</code> och <code>rimfrost-portal-admin-bff</code>. Anropen till OUL står i <code>rimfrost-service-oul-management-openapi</code>.</p>
+            </div>
+          </details>
         </div>
         <div class="card">
           <h3>BFF</h3>
           <p>En <i>backend-for-frontend</i> är en liten server för en enda vy. Den hämtar och tvättar data och kontrollerar behörighet, så att webbläsaren aldrig pratar direkt med tjänsterna.</p>
+          <details class="more">
+            <summary>För utvecklare</summary>
+            <div>
+              <p>Gemensam grund: <code>rimfrost-framework-bff</code>, ett bibliotek med felhantering, hälsokontroll, vidarebefordran av inloggningen, loggning och iloggning.</p>
+            </div>
+          </details>
         </div>
       </div>
     </div>
@@ -61,7 +98,17 @@
 .mock-task small { color: var(--muted); }
 .mock-task.on { border-color: var(--accent); background: var(--accent-soft); }
 .mock-btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-.mock-main { padding: 1rem; display: grid; grid-template-rows: auto 1fr auto; gap: 0.6rem; }
+.mock-main { padding: 1rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.6rem; }
+.mock-steps { list-style: none; margin: 0; padding: 0.4rem 0 0.1rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mock-steps li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0 0.2rem; text-align: center; font-size: 0.68rem; line-height: 1.25; color: var(--muted); }
+.mock-steps li + li::before { content: ""; position: absolute; top: calc(0.8rem - 1.5px); left: calc(-50% + 1.15rem); right: calc(50% + 1.15rem); height: 3px; border-radius: 2px; background: var(--line); }
+.mock-steps li.done + li::before { background: var(--ok); }
+.mock-steps .dot { position: relative; z-index: 1; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 0.72rem; background: var(--accent-soft); color: var(--accent); }
+.mock-steps .dot svg { width: 0.95rem; height: 0.95rem; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.mock-steps .done .dot { background: var(--ok); color: var(--bg); box-shadow: 0 0 0 3px var(--ok-s); }
+.mock-steps .now .dot { background: var(--accent); color: var(--bg); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mock-steps .done, .mock-steps .now { color: var(--ink); }
+.mock-steps .now { font-weight: 600; }
 .mock-title { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.8rem; font: 600 0.95rem var(--f-display); }
 .mock-slot { border: 1.5px dashed var(--c-portal); background: var(--c-portal-s); border-radius: 10px; display: grid; place-items: center; text-align: center; padding: 1rem; color: var(--c-portal); gap: 0.25rem; }
 .mock-slot b { font: 600 0.95rem var(--f-display); }
