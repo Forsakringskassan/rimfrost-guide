@@ -8,8 +8,8 @@ const parts = [
   { name: "Team och handläggare", pill: "p-mute", label: "Stub", meaning: "Hårdkodade testdata: fyra team och tre påhittade handläggare. Tjänsten innehåller bara team och medlemmar, inte behörigheter." },
   { name: "Skyddad identitet och SID-behörighet", pill: "p-mute", label: "Stub", meaning: "Två egna tjänster med hårdkodade svar. Personer vars nummer slutar på 4444 räknas som skyddade, och bara en av testhandläggarna har SID-behörighet. Inget av det går att ändra i adminportalen." },
   { name: "Identitet", pill: "p-mute", label: "Stub", meaning: "Står i för FK:s identity-tjänst och svarar med det som står i inloggningens token, utan att slå upp något." },
-  { name: "Kommunicering", pill: "p-warn", label: "På gång", meaning: "En gemensam byggsten för alla processer som behöver kommunicera med kunden. Hittills inkopplad bara i exempelprocessen VAH, version 1.3.0, som ännu inte körs i den gemensamma miljön." },
-  { name: "Iloggning", pill: "p-warn", label: "Delvis", meaning: "Vyerna för manuell RTF och kommunicering loggar vem som såg vad. Vyerna för komplettering och Bekräfta beslut gör det inte än." },
+  { name: "Kommunicering", pill: "p-warn", label: "Delvis", meaning: "En gemensam byggsten för alla processer som behöver kommunicera med kunden. Körs i den gemensamma miljön, men är hittills bara inkopplad i exempelprocessen VAH." },
+  { name: "Iloggning", pill: "p-ok", label: "Riktig", meaning: "Alla handläggarvyer för regler loggar vem som såg vad: manuell RTF, komplettering, Bekräfta beslut och kommunicering." },
 ];
 </script>
 
