@@ -255,7 +255,7 @@ const terms: GlossaryTerm[] = [
     definition: "Loggning av vem som har tagit del av information om en person.",
     details: [
       "Meddelandet InformationsaccessEvent skickas på Kafka-topicen informationsaccess (rimfrost-service-informationsaccess-asyncapi).",
-      "Skickas idag av rimfrost-regel-rtf-manuell-bff och rimfrost-regel-kommunicering-bff. Stödet finns i rimfrost-framework-bff.",
+      "Skickas idag av rimfrost-regel-rtf-manuell-bff, rimfrost-regel-rtf-manuell-komplettering-bff, rimfrost-regel-bekraftabeslut-bff och rimfrost-regel-kommunicering-bff. Stödet finns i rimfrost-framework-bff.",
     ],
     link: { href: "#kontrakt", text: "Hur delarna pratar" },
   },

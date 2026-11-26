@@ -48,7 +48,7 @@
             <rect x="720" y="98" width="160" height="64" rx="12" class="n-human" />
             <text x="800" y="124" text-anchor="middle" class="d-text">Kommunicering</text>
             <text x="800" y="144" text-anchor="middle" class="d-sub">kundens svar på beslutet</text>
-            <text x="800" y="188" text-anchor="middle" class="d-lbl">NYTT I 1.3 · PÅ GÅNG</text>
+            <text x="800" y="188" text-anchor="middle" class="d-lbl">NYTT I 1.3</text>
             <path d="M780 98V36H194V96" class="d-line d-dash" marker-end="url(#ar-flow)" />
             <text x="487" y="28" text-anchor="middle" class="d-lbl">INVÄNDNINGEN GODTAS → ÄRENDET PRÖVAS OM</text>
             <path d="M880 130H912" class="d-line" marker-end="url(#ar-flow)" />
@@ -86,13 +86,13 @@
           <p>En handläggare bekräftar beslutet. Processen svarar GODKÄND om alla ersättningar är beviljade och annars EJ GODKÄND. Blir det fel i något steg blir svaret FEL.</p>
         </div>
         <div class="card">
-          <p class="eyebrow">Steg 4, nytt i 1.3 <span class="pill p-warn">På gång</span></p>
+          <p class="eyebrow">Steg 4, nytt i 1.3</p>
           <h3>Kunden får säga sitt</h3>
           <p>Kommunicering är en gemensam byggsten som alla processer kan använda när de behöver kommunicera med kunden. Hittills är den bara inkopplad i VAH. En handläggare får en uppgift och registrerar hur kunden har svarat på beslutet. Godtar kunden beslutet, eller står handläggaren fast vid det, går ärendet vidare. Godtas kundens invändning prövas ärendet om från början. Sist informeras kunden om beslutet.</p>
           <details class="more">
             <summary>För utvecklare</summary>
             <div>
-              <p>Kommunicering finns i <code>rimfrost-process-vah</code> 1.3.0, men den versionen körs ännu inte i den gemensamma miljön och kommunicering har ingen image i <code>rimfrost-kubernetes</code>. <code>rimfrost-process-vab</code> anropar den inte än.</p>
+              <p>Kommunicering kopplades in i <code>rimfrost-process-vah</code> 1.3.0 och körs i den gemensamma miljön. <code>rimfrost-process-vab</code> anropar den inte än.</p>
               <p>Utfallen är <code>KundAccepterat</code> och <code>NekatBestridande</code> (JA, processen går vidare) samt <code>AccepteratBestridande</code> (NEJ, processen börjar om vid maskinell RTF). Steget <i>Informera om beslut</i> körs efter kommuniceringen och avslutar processen.</p>
             </div>
           </details>
